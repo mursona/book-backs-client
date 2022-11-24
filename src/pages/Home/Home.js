@@ -1,10 +1,15 @@
 import React from 'react';
+import Banner from './Banner';
+import BookCategories from './Category/BookCategories';
+import Reviews from './Review/Reviews';
 
 
 const Home = () => {
     return (
       <div>
-        <h2>this is home</h2>
+        <Banner></Banner>
+        <BookCategories></BookCategories>
+        <Reviews></Reviews>
       </div>
     );
 };

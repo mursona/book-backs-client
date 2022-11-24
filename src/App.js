@@ -3,7 +3,7 @@ import router from './routes/Routes/Routes';
 
 function App() {
   return (
-    <div className='bg-white pt-8'>
+    <div>
       <RouterProvider router={router}></RouterProvider>
     </div>
   );

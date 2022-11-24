@@ -12,7 +12,7 @@ const Footer = () => {
                         <h1 className="font-extrabold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-indigo-900 to-pink-500">BOOK|<small className="font-bold text-transparent text-xl bg-clip-text bg-gradient-to-r from-indigo-900 to-pink-500">BACK</small></h1>
                         </span>
 
-                            <p className="max-w-sm mt-2 text-gray-700 dark:text-gray-400">Join 31,000+ other and never miss out on new books, tutorials</p>
+                            <p className="max-w-sm mt-2 text-gray-700 dark:text-gray-400">Join 31,000+ other and never miss out on new books, resales</p>
 
                             <div className="flex mt-6 -mx-2">
                                 <a href='/'
