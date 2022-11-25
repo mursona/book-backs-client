@@ -11,9 +11,9 @@ const ErrorPage = () => {
             <h2 className='mb-8 font-extrabold text-9xl text-gray-500'>
               <span className='sr-only'>Error</span>
               <div className='flex justify-center items-center h-full'>
-                <h1 className='font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-pink-800 to-pink-200'>4</h1>
+                <h1 className='font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-blue-400 to-pink-200'>4</h1>
                 <img className='w-24 h-24 mt-3' src={error} alt="" />
-                <h1 className='font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-pink-800 to-pink-200'>4</h1>
+                <h1 className='font-extrabold text-transparent text-8xl bg-clip-text bg-gradient-to-r from-blue-400 to-pink-200'>4</h1>
               </div>
             </h2>
             <p className='text-2xl font-semibold md:text-3xl mb-8'>
