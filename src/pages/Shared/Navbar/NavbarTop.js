@@ -43,6 +43,16 @@ const NavbarTop = () => {
               Blog
             </Link>
           </Typography>
+          <Typography
+            as="li"
+            variant="small"
+            color="blue-gray"
+            className="p-1 font-normal"
+          >
+            <Link to='/booking' className="flex items-center">
+              buy
+            </Link>
+          </Typography>
         </ul>
       );
 

@@ -1,30 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BookCategory from './BookCategory';
-import category1 from '../../../assets/ssc-03.png';
-import category2 from '../../../assets/hsc-01.png';
-import category3 from '../../../assets/gre-02.png';
 
 const BookCategories = () => {
-    const categoryData = [
-        {
-            id: 1,
-            name: 'Secondary',
-            description: 'In this category we resale Secondary School old books',
-            icon: category1
-        },
-        {
-            id: 2,
-            name: 'Higher Secondary',
-            description: 'In this category we resale Higher Secondary School old books',
-            icon: category2
-        },
-        {
-            id: 3,
-            name: 'Graduate Record',
-            description: 'In this category we resale HGraduate Record examination old books',
-            icon: category3
-        },
-    ]
+  const  [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/categories')
+    .then(res => res.json())
+    .then(data => setCategories(data))
+}, [])
 
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -56,7 +40,7 @@ const BookCategories = () => {
         </div>
         <div className="grid gap-8 row-gap-8 lg:grid-cols-3">
             {
-                categoryData.map(category => <BookCategory
+                categories.map(category => <BookCategory
                     key={category.id}
                     category={category}
                 >
