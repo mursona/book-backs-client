@@ -28,7 +28,7 @@ const Reviews = () => {
     ]
 
     return (
-        <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
             <h2 className="max-w-lg mb-5 font-sans text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none  leading-none md:mx-auto">
             <span className="relative inline-block">Read trusted
                     <span className="relative text-pink-600"> reviews</span>

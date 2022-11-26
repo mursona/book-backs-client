@@ -4,14 +4,8 @@ import banner from '../../assets/banner-01.png';
 
 const Banner = () => {
     return (
-        <div className="relative flex flex-col-reverse mx-auto my-6 max-w-screen-xl py-2 px-4 lg:pt-0 lg:flex-col lg:pb-0">
-        <div className="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
-          <img
-            className="pl-10 py-10 object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
-            src={banner}
-            alt=""/>
-        </div>
-        <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
+        <div className="grid gap-10 lg:grid-cols-2 mx-auto my-6 max-w-screen-xl py-2 px-4 lg:pt-0 lg:pb-0">
+                <div className="flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
           <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
             <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
               Book Back
@@ -38,6 +32,12 @@ const Banner = () => {
               </a>
             </div>
           </div>
+        </div>
+        <div className="w-full px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:max-w-full xl:px-0">
+          <img
+            className="py-10 object-cover w-full rounded shadow-lg lg:rounded-none lg:shadow-none lg:h-full"
+            src={banner}
+            alt=""/>
         </div>
         </div>
     );
