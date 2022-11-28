@@ -8,7 +8,7 @@ const useTokenHook = email => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.jwtToken) {
-                        localStorage.setItem('jwtToken', data.jwtToken);
+                        localStorage.setItem('bookToken', data.jwtToken);
                         setToken(data.jwtToken);
                     }
                 });

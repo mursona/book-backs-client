@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { authContext } from '../../contextApi/Authcontext';
+import { myContext } from '../../contextApi/Authcontext';
 import useTokenHook from '../../CustomeHOOk/useTokenHook/useTokenHook';
 import { Button } from "@material-tailwind/react";
 import { FaRegUserCircle } from 'react-icons/fa';
@@ -12,16 +12,16 @@ import { RiLockPasswordLine } from 'react-icons/ri';
 const Signup = () => {
     const { register, handleSubmit,formState: { errors },} = useForm();
     const [signUpError, setSignUPError] = useState('')
-    const {signuP,updateUser} = useContext(authContext)
+    const {signuP,updateUser} = useContext(myContext)
     const [useremail, setuseremail] = useState('')
     const [token] = useTokenHook(useremail)
-    const navigate = useNavigate()
+    const naviget = useNavigate()
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
 
      if(token){
-        navigate(from, { replace: true });
+        naviget(from, { replace: true });
      }
 
     const handleSignup = (data) => {
@@ -31,16 +31,16 @@ const Signup = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                // toast('User Created Successfully.')
+                
                 const userInfo = {
                     displayName: data.name
                     
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        storeUserInDB(data.name, data.email, data.role) 
+                        storeUserInDB(data.name,data.email,data.role) 
                         toast.success('Signup Complete')
-                        navigate('/') 
+                        naviget('/') 
                      })
                     .catch(err => console.log(err));
             })
@@ -51,7 +51,7 @@ const Signup = () => {
     }
 
 
-    const storeUserInDB = (name, email, role) =>{
+    const storeUserInDB = (name, email,role) =>{
         const user = {name,email,role};
         fetch(`http://localhost:5000/users`,{
             method : 'POST',
@@ -62,8 +62,7 @@ const Signup = () => {
         })
         .then(res => res.json())
         .then(data => {
-            setuseremail(email)
-            
+            setuseremail(email)  
         })
     }
 
@@ -72,7 +71,7 @@ const Signup = () => {
 
     return (
         <div className='my-10 flex justify-center items-center'>
-        <div className='className="flex flex-col w-full max-w-md px-4 py-8 bg-pink-50 rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10'>
+        <div className='flex flex-col w-full max-w-md px-4 py-8 bg-pink-50 rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10'>
             <div className="self-center mb-6 text-xl font-light text-gray-700 sm:text-2xl dark:text-white">
                 Sign Up
             </div>
@@ -115,11 +114,12 @@ const Signup = () => {
                 <div className="flex flex-col mb-6 text-center">
                 <div className="form-control w-full max-w-xs">
                 <label className="label"> <span className="label-text text-md">Selected Role</span></label>
-                <select name="role" {...register("role", { required: true})} className="select select-bordered w-full mx-6">
-                 <option value= 'bayer'> bayer </option>
-                 <option value= 'seller'> seller </option>
-              </select>
-            </div>
+                    <select name="role" {...register("role", { required: true})} className="select select-bordered w-full">
+                     <option value= 'buyer'> buyer </option>
+                     <option value= 'seller'> seller </option>
+                  </select>
+
+                  </div>
                 </div>
                 <Button color='pink' className='mt-4 mx-auto w-full' value="Sign Up" type="submit">Sign Up</Button>
                 {signUpError && <p className='text-red-600'>{signUpError}</p>}

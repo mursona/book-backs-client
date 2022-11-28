@@ -1,6 +1,6 @@
 import React from 'react';
-import PrimaryButton from '../../components/Button/PrimaryButton';
-import banner from '../../assets/banner-01.png';
+import PrimaryButton from '../../../component/Button/PrimaryButton';
+import banner from '../../../assets/banner-01.png';
 
 const Banner = () => {
     return (

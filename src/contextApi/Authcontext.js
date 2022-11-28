@@ -12,7 +12,7 @@ import {
 import app from "../firebase/firebase.config";
 const provider = new GoogleAuthProvider();
 const auth = getAuth(app);
-export const authContext = createContext();
+export const myContext = createContext();
 const Authcontext = ({ children }) => {
   const [products, setproducts] = useState(false)
   const [user, setUser] = useState(null);
@@ -64,7 +64,7 @@ const Authcontext = ({ children }) => {
   };
 
   return (
-    <authContext.Provider value={contextValue}>{children}</authContext.Provider>
+    <myContext.Provider value={contextValue}>{children}</myContext.Provider>
   );
 };
 

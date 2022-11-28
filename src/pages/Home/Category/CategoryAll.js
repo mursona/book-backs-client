@@ -1,16 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import BookCategory from './BookCategory';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
+import Card from './Card';
 
-const BookCategories = () => {
-  const  [categories, setCategories] = useState([]);
+const CategoryAll = () => {
 
-  useEffect(() => {
-    fetch('http://localhost:5000/categories')
-    .then(res => res.json())
-    .then(data => setCategories(data))
-}, [])
+    const {data: catetories = [], isLoading} = useQuery({
+        queryKey : ['categories'],
+        queryFn : async ()=>{
+            const res = await fetch(`http://localhost:5000/categories`)
+            const data = await res.json()
+            return data
+        }
+    })
 
-    return (
+if(isLoading){
+    return <p>loadding...</p>
+}
+
+    return ( 
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <h2 className="max-w-lg mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none  leading-none md:mx-auto">
@@ -40,15 +47,11 @@ const BookCategories = () => {
         </div>
         <div className="grid gap-8 row-gap-8 lg:grid-cols-3">
             {
-                categories.map(category => <BookCategory
-                    key={category.id}
-                    category={category}
-                >
-                </BookCategory>)
+                catetories.map(categories=> <Card categories={categories}></Card>)
             }
         </div>
-    </div>
+        </div>
     );
 };
 
-export default BookCategories;
+export default CategoryAll;

@@ -1,16 +1,13 @@
-import { RouterProvider } from 'react-router-dom';
-import router from './routes/Routes/Routes';
-import { Toaster } from 'react-hot-toast';
-// import { ThemeProvider } from "@material-tailwind/react";
 
+import { Toaster } from 'react-hot-toast';
+import { RouterProvider } from 'react-router-dom';
+import './App.css';
+import router from './Routing/router';
 function App() {
   return (
-    <div>
-      {/* <ThemeProvider> */}
-      <RouterProvider router={router}>
-      </RouterProvider>
+    <div className='max-w-[1440px] mx-auto'>
+      <RouterProvider router={router}></RouterProvider>
       <Toaster></Toaster>
-      {/* </ThemeProvider> */}
     </div>
   );
 }
