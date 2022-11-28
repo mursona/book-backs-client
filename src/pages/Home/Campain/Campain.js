@@ -10,7 +10,7 @@ const Campain = () => {
 const {data:campain =[] , isLoading} = useQuery({
 queryKey : ['campain'],
 queryFn : async ()=>{
-    const res = await fetch(`http://localhost:5000/campain`);
+    const res = await fetch(`https://book-back-server.vercel.app/campain`);
     const data = res.json()
     return data
 }

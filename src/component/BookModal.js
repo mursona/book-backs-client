@@ -29,7 +29,7 @@ const BookModal = ({ modalinfo,setmodalinfo }) => {
         sellerEmail
     }
 
-    fetch(`http://localhost:5000/bookingproduct?email=${user?.email}`,{
+    fetch(`https://book-back-server.vercel.app/bookingproduct?email=${user?.email}`,{
       method : 'POST',
       headers : {
         'content-type' : 'application/json',

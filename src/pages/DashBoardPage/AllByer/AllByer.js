@@ -8,7 +8,7 @@ const AllByer = () => {
   const { data: buyers = [], isLoading } = useQuery({
     queryKey: ["buyer",user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/buyer?email=${user?.email}`,{
+      const res = await fetch(`https://book-back-server.vercel.app/buyer?email=${user?.email}`,{
         headers: {
           authorization: `bearer ${localStorage.getItem('bookToken')}`
       }

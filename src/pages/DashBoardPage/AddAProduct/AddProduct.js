@@ -46,7 +46,7 @@ const AddProduct = () => {
                 }
 
                 // save product information to the db
-                fetch(`http://localhost:5000/allproducts?email=${user?.email}`, {
+                fetch(`https://book-back-server.vercel.app/allproducts?email=${user?.email}`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json', 

@@ -7,7 +7,7 @@ const Myorders = () => {
     queryKey: ["bookingproduct", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/bookingproduct?email=${user?.email}`,
+        `https://book-back-server.vercel.app/bookingproduct?email=${user?.email}`,
         {
           headers: {
             authorization: `bearer ${localStorage.getItem("bookToken")}`,
@@ -41,11 +41,11 @@ const Myorders = () => {
           <tbody>
             { bookedproduct.length && bookedproduct.map((booked, index) => (
               <tr key = {booked._id}>
-                <th class="p-4">{index + 1}</th>
-                <th class="p-4"> {booked.product_name} </th>
-                <th class="p-4"> {booked.brand_name} </th>
-                <th class="p-4"> {booked.product_price} </th>
-                <th class="p-4">
+                <th className="p-4">{index + 1}</th>
+                <th className="p-4"> {booked.product_name} </th>
+                <th className="p-4"> {booked.brand_name} </th>
+                <th className="p-4"> {booked.product_price} </th>
+                <th className="p-4">
                   <button className="btn btn-sm">Buy Now</button>
                 </th>
               </tr>

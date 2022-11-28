@@ -13,7 +13,7 @@ const AllProducts = () => {
      const {data:product = [], isLoading} = useQuery({
         queryKey : ['allproducts',category_name],
         queryFn : async ()=>{
-            const res = await fetch(`http://localhost:5000/allproducts?category_name=${category_name}&email=${user?.email}`,{
+            const res = await fetch(`https://book-back-server.vercel.app/allproducts?category_name=${category_name}&email=${user?.email}`,{
                 headers: {
                     authorization: `bearer ${localStorage.getItem('bookToken')}`
                 }

@@ -8,7 +8,7 @@ const MyProducts = () => {
     queryKey: ["myproduct", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/myproduct?email=${user?.email}`,
+        `https://book-back-server.vercel.app/myproduct?email=${user?.email}`,
         {
           headers: {
             authorization: `bearer ${localStorage.getItem("bookToken")}`,
@@ -25,7 +25,7 @@ const MyProducts = () => {
   }
 
   const handlecampain = (id) => {
-    fetch(`http://localhost:5000/campain?productId=${id}&email=${user?.email}`, {
+    fetch(`https://book-back-server.vercel.app/campain?productId=${id}&email=${user?.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -59,10 +59,10 @@ const MyProducts = () => {
               <>
                 {myproducts.map((product) => (
                   <tr key={product._id}>
-                    <th class="p-4"></th>
-                    <th class="p-4"> {product.product_name} </th>
-                    <th class="p-4"> {product.product_price} </th>
-                    <th class="p-4">
+                    <th className="p-4"></th>
+                    <th className="p-4"> {product.product_name} </th>
+                    <th className="p-4"> {product.product_price} </th>
+                    <th className="p-4">
                       {" "}
                       <button className="btn btn-sm btn-success">
                         available
