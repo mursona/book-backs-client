@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import Card from './Card';
+import useTitle from '../../../CustomeHOOk/MakeDynamicTitle/UseTitle';
 
 const Categorie = () => {
+  useTitle('Category');
     const {data: catetories = [], isLoading} = useQuery({
         queryKey : ['categories'],
         queryFn : async ()=>{

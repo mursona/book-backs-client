@@ -2,10 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { MdOutlineVerified } from 'react-icons/md';
 import { myContext } from '../../../contextApi/Authcontext';
-
+import useTitle from '../../../CustomeHOOk/MakeDynamicTitle/UseTitle';
 
 const Allseller = () => {
-   const {user} = useContext(myContext)
+   const {user} = useContext(myContext);
+   useTitle('Allseller');
     const {data : sellers = [], isLoading, refetch} = useQuery({
         queryKey : ['seller',user?.email],
         queryFn : async ()=>{

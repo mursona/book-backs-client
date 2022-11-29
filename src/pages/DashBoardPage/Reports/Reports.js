@@ -1,9 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { myContext } from "../../../contextApi/Authcontext";
+import useTitle from '../../../CustomeHOOk/MakeDynamicTitle/UseTitle';
 
 const Reports = () => {
-    const {user:adminemail} = useContext(myContext)
+  const {user:adminemail} = useContext(myContext)
+
+  useTitle('Reports');
   const { data: reposts } = useQuery({
     queryKey: ["report"],
     queryFn: async () => {

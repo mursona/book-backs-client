@@ -3,7 +3,11 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { myContext } from '../../contextApi/Authcontext';
+import useTitle from '../../CustomeHOOk/MakeDynamicTitle/UseTitle';
+
 const Login = () => {
+
+    useTitle('Login')
     const { register, handleSubmit,formState: { errors },} = useForm();
     const [loginError, setLoginError] = useState(''); 
     const {logIn,googleSignin} = useContext(myContext) 

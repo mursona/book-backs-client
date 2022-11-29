@@ -6,6 +6,7 @@ import errorimg from '../../assets/404-01.png'
 import { Button } from "@material-tailwind/react";
 
 const ErrorPage = () => {
+
   const { logOut } = useContext(myContext);
   const error = useRouteError();
   const navigate = useNavigate();

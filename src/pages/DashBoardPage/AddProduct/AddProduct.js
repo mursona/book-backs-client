@@ -5,10 +5,12 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import {  useNavigate } from 'react-router-dom';
 import { myContext } from '../../../contextApi/Authcontext';
+import useTitle from '../../../CustomeHOOk/MakeDynamicTitle/UseTitle';
 
 const AddProduct = () => {
     const { register, handleSubmit,formState: { errors },} = useForm();
-    const {user} =  useContext(myContext)
+    const {user} =  useContext(myContext);
+    useTitle('Add Product');
     const naviget = useNavigate()
     const time = moment().format('lll');
     // const imgkey = process.env.REACT_APP_IMAGE_SEC

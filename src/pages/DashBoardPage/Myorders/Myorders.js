@@ -2,8 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { myContext } from "../../../contextApi/Authcontext";
+import useTitle from "../../../CustomeHOOk/MakeDynamicTitle/UseTitle";
+
 const Myorders = () => {
   const { user } = useContext(myContext);
+  useTitle('My Orders');
+
   const { data: bookedproduct = [], isLoading } = useQuery({
     queryKey: ["bookingproduct", user?.email],
     queryFn: async () => {

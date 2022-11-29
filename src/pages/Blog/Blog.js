@@ -5,8 +5,10 @@ import { RiNumber1 } from 'react-icons/ri';
 import { RiNumber2 } from 'react-icons/ri';
 import { RiNumber3 } from 'react-icons/ri';
 import { RiNumber4 } from 'react-icons/ri';
+import useTitle from '../../CustomeHOOk/MakeDynamicTitle/UseTitle';
 
 const Blog = () => {
+    useTitle('Blog');
     return (
             <div className=" flex flex-col items-center max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 container p-6 mx-auto">
                 <div className="flex flex-col items-center pb-4 mx-auto my-10 border-b border-gray-200 max-w-7xl sm:flex-row">
