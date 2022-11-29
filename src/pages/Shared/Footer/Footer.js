@@ -48,9 +48,9 @@ const Footer = () => {
 
                             <div>
                                 <h3 className="text-pink-700 font-semibold uppercase dark:text-white">Products</h3>
-                                <a href='/' className="block mt-2 text-sm text-gray-700 dark:text-gray-400 hover:underline">Book HSC</a>
-                                <a href='/' className="block mt-2 text-sm text-gray-700 dark:text-gray-400 hover:underline">Book SSC</a>
-                                <a href='/' className="block mt-2 text-sm text-gray-700 dark:text-gray-400 hover:underline">Book GRE</a>
+                                <a href='/' className="block mt-2 text-sm text-gray-700 dark:text-gray-400 hover:underline">Horror Series</a>
+                                <a href='/' className="block mt-2 text-sm text-gray-700 dark:text-gray-400 hover:underline">Fiction Series</a>
+                                <a href='/' className="block mt-2 text-sm text-gray-700 dark:text-gray-400 hover:underline">Detective Series</a>
                             </div>
 
                             <div>
