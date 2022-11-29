@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { FiPhoneCall } from 'react-icons/fi';
 import { ImLocation2 } from 'react-icons/im';
+import { MdOutlineVerifiedUser } from 'react-icons/md';
 import { useQuery } from "@tanstack/react-query";
 import { myContext } from "../../contextApi/Authcontext";
 import toast from "react-hot-toast";
@@ -66,16 +67,16 @@ const reportAdmin = (id) =>{
 
         <div className="flex mt-2 item-center">
         <div className=" flex flex-wrap my-2 rounded-md"> 
-              <span className="flex mx-1 p-1 bg-[#edeeed] my-1 rounded-md items-center"> <div className="mr-2"><FiPhoneCall/></div> {mobile} </span>
-              <span className="flex mx-1 p-1 bg-[#edeeed] my-1 rounded-md items-center"> Market Price: ${Market_Price}, </span>
-              <span className="flex mx-1 p-1 bg-[#edeeed] my-1 rounded-md items-center"> Product Price: ${product_price}, </span>
-              <span className="flex mx-1 p-1 bg-[#edeeed] my-1 rounded-md items-center"> Purchase Year: {purchase_year}, </span>
-              <span className="flex mx-1 p-1 bg-[#edeeed] my-1 rounded-md items-center">  Condition: {condition_type}, </span>
-              <span className="flex mx-1 p-1 bg-[#edeeed] my-1 rounded-md items-center"> <ImLocation2/> {location} </span>
+              <span className="flex mx-1 p-1 bg-gray-50 my-1 rounded-md items-center"> <div className="mr-2"><FiPhoneCall/></div> {mobile} </span>
+              <span className="flex mx-1 p-1 bg-gray-50 my-1 rounded-md items-center"> Market Price: ${Market_Price}</span>
+              <span className="flex mx-1 p-1 bg-gray-50 my-1 rounded-md items-center"> Product Price: ${product_price}</span>
+              <span className="flex mx-1 p-1 bg-gray-50 my-1 rounded-md items-center"> Purchase Year: {purchase_year} </span>
+              <span className="flex mx-1 p-1 bg-gray-50 my-1 rounded-md items-center">  Condition: {condition_type}</span>
+              <span className="flex mx-1 p-1 bg-gray-50 my-1 rounded-md items-center"> <ImLocation2/> {location} </span>
             </div>
         </div>
         <div className="flex justify-between mt-3 item-center">
-            <h1 className="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl">{sellerName} { user?.verified === true && <span className="text-xl text-blue-500"></span>}</h1>
+            <h1 className="text-amber-600 flex text-2xl font-semibold dark:text-gray-200 md:text-xl">{sellerName} { user?.verified === true && <span className="text-2xl mx-2 text-indigo-300"><MdOutlineVerifiedUser></MdOutlineVerifiedUser></span>}</h1>
             <div> { <Button onClick={()=>setmodalinfo(prod)} color='pink' variant="gradient" >Book Now</Button>}
               <Button onClick={()=>reportAdmin(_id)} color='pink' variant='outlined' className="mx-4">Report</Button>
             </div>

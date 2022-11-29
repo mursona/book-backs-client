@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { MdOutlineVerified } from 'react-icons/md';
 import { myContext } from '../../../contextApi/Authcontext';
 
 
@@ -69,7 +70,7 @@ const Allseller = () => {
                 <th className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"> {seller.name} </th>
                 <th className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap bg-pink-50">{seller.email}</th>
                 <th className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><button onClick={()=>handleVerify(seller._id)} className= {`btn btn-sm btn-primary ${seller.verified === true ? 'btn-primary' : 'btn-warning'}`} >
-                  {seller.verified === true ? 'verifyed' : 'verify Now' }
+                  {seller.verified === true ? <MdOutlineVerified></MdOutlineVerified> : 'verify Now' }
                   </button></th>
                 <th className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap bg-pink-50"><button onClick={()=>deleteseller(seller._id)} className='btn btn-sm btn-warning'>Delete</button></th>
               </tr>
