@@ -1,15 +1,15 @@
 import React from 'react';
-import Campain from '../Campain/Campain';
 import Banner from '../Banner/Banner';
-import CategoryAll from '../Category/CategoryAll';
-import Reviews from '../Review/Reviews'
+import Campain from '../Campaign/Campain';
+import Categorie from '../Category/Categorie';
+import Reviews from '../Reviews/Reviews';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <Categorie></Categorie>
             <Campain></Campain>
-            <CategoryAll></CategoryAll>
             <Reviews></Reviews>
         </div>
     );

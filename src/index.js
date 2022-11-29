@@ -4,22 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Authcontext from "./contextApi/Authcontext";
-import { ThemeProvider } from "@material-tailwind/react";
 
 import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Authcontext>
-      <ThemeProvider>
         <App />
-      </ThemeProvider>
       </Authcontext>
     </QueryClientProvider>
   </React.StrictMode>

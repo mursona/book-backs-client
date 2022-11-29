@@ -2,12 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import AllProducts from "../Pages/AllProducts/AllProducts";
-import Blog from '../Pages/Blog/Blog'
-import AddProduct from "../Pages/DashBoardPage/AddAProduct/AddProduct";
-import AllByer from "../Pages/DashBoardPage/AllByer/AllByer";
+import Blog from "../Pages/Blog/Blog";
+import AddProduct from "../Pages/DashBoardPage/AddProduct/AddProduct";
+import AllByer from "../Pages/DashBoardPage/AllBuyer/AllByer";
 import Allseller from "../Pages/DashBoardPage/AllSeller/Allseller";
 import Myorders from "../Pages/DashBoardPage/Myorders/Myorders";
 import MyProducts from "../Pages/DashBoardPage/MyProducts/MyProducts";
+import ProductBuy from "../Pages/DashBoardPage/ProductBuy/ProductBuy";
+import Reports from "../Pages/DashBoardPage/Reports/Reports";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -41,7 +43,7 @@ const router = createBrowserRouter([
             {
                 path : '/category/:id',
                 element : <PrivetRouting><AllProducts></AllProducts></PrivetRouting>,
-                loader : ({params})=> fetch(`https://book-back-server.vercel.app/categories/${params.id}`)
+                loader : ({params})=> fetch(`http://localhost:5000/categories/${params.id}`)
 
             },
             
@@ -55,6 +57,12 @@ const router = createBrowserRouter([
             {
                 path : '/dashboard',
                 element : <Myorders></Myorders>
+            },
+            {
+                path : '/dashboard/purchase/:id',
+                element : <ProductBuy></ProductBuy>,
+                loader : ({params})=> fetch(`http://localhost:5000/product/purchase/${params.id}`)
+                
             },
             {
                 path : '/dashboard/myproducts',
@@ -72,6 +80,10 @@ const router = createBrowserRouter([
             {
                 path : '/dashboard/allbyer',
                 element : <AdminRoute> <AllByer></AllByer> </AdminRoute>
+            },
+            {
+                path : '/dashboard/report',
+                element : <AdminRoute> <Reports></Reports> </AdminRoute>
             },
            
         ]

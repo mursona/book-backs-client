@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { myContext } from "../../../contextApi/Authcontext";
+import { Link } from "react-router-dom";
 import { BiUser } from 'react-icons/bi';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { BsThreeDotsVertical } from 'react-icons/bs';
@@ -13,6 +13,7 @@ const NavbarTop = () => {
     const { user ,logOut} = useContext(myContext);
 
     return (
+
         <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-1">
         <div className='className="container mx-auto flex items-center justify-between text-blue-gray-900"'>
         <Typography
@@ -31,6 +32,14 @@ const NavbarTop = () => {
               <>
               <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
               <Typography
+                    as="li"
+                    variant="small"
+                    color="blue-gray"
+                    className="p-1 font-normal"
+                >
+                <Link to='/' className="flex items-center">Home</Link>
+                </Typography>
+              <Typography
               as="li"
               variant="small"
               color="blue-gray"
@@ -40,14 +49,6 @@ const NavbarTop = () => {
                 Blog
               </Link>
              </Typography>
-                <Typography
-                    as="li"
-                    variant="small"
-                    color="blue-gray"
-                    className="p-1 font-normal"
-                >
-                <Link to='/booking' className="flex items-center">buy</Link>
-                </Typography>
                 </ul>
                 <div className='relative inline-block '>
                   <button

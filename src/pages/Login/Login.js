@@ -1,31 +1,34 @@
+import { Button, Input } from '@material-tailwind/react';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { myContext } from '../../contextApi/Authcontext';
-import useTokenHook from '../../CustomeHOOk/useTokenHook/useTokenHook';
-import { Button, Input } from "@material-tailwind/react";
-
 const Login = () => {
     const { register, handleSubmit,formState: { errors },} = useForm();
     const [loginError, setLoginError] = useState(''); 
     const {logIn,googleSignin} = useContext(myContext) 
-    const [useremail, setuseremail] = useState('');
-    const [token] = useTokenHook(useremail)
     const negivet = useNavigate()
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
-    if(token){
-        negivet(from, { replace: true });
-    }
-    
+ 
     const handlLogin = data => {
         console.log(data);
         setLoginError('');
         logIn(data.email, data.password)
             .then(result => {
                 
-                setuseremail(data.email)
+                // fetch jwt
+                fetch(`http://localhost:5000/jwt?email=${data.email}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.jwtToken) {
+                        localStorage.setItem('backToken', data.jwtToken);
+                        negivet(from, { replace: true });
+                    }
+                });
+
+
             })
             .catch(error => {
                 setLoginError(error.message);
@@ -40,7 +43,14 @@ const Login = () => {
           const email = user.email;
           const role = "buyer";
             storeGoogleUserInfo(name,email,role)
-            setuseremail(email)
+            fetch(`http://localhost:5000/jwt?email=${email}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.jwtToken) {
+                        localStorage.setItem('backToken', data.jwtToken);
+                        negivet(from, { replace: true });
+                    }
+                });
         })
         .catch(error =>{
             setLoginError(error.message)
@@ -48,9 +58,11 @@ const Login = () => {
     }
 
 
+
+
     const storeGoogleUserInfo = (name, email,role) =>{
         const deta = {name,email,role};
-        fetch(`https://book-back-server.vercel.app/users`,{
+        fetch(`http://localhost:5000/users`,{
             method : 'POST',
             headers : {
                 'content-type' : 'application/json'
@@ -60,9 +72,11 @@ const Login = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            negivet(from, { replace: true });
+            // negivet(from, { replace: true });
         })
     }
+
+   
 
     return (
         <div className='my-10 flex justify-center items-center'>
@@ -91,13 +105,17 @@ const Login = () => {
                     <label className="label"> <span className="label-text">Forget Password?</span></label>
                     {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                 </div>
-                <Button color='pink' className='mx-auto text-center' type='submit'>Login</Button>
+                <div className='text-center mx-12'>
+                <Button type="submit" color='pink' variant='outlined'>
+                    Login
+                </Button>
+                </div>
                 <div>
                     {loginError && <p className='text-red-600'>{loginError}</p>}
                 </div>
             </form>
-            <p className='text-secondary underline my-4 text-center'>New to here ?<Link to="/signup">Create new Account</Link></p>
-            <Button onClick={handleGoogleSignin} variant='outlined' color='pink' className='mx-10' size='sm'>Login With Google</Button> 
+            <div className='text-center my-2'><p>New to here? <Link className='text-secondary underline' to="/signup">Create New Account</Link></p></div>
+            <Button onClick={handleGoogleSignin} color='pink' variant='gradient'>Login With Google</Button>
         </div>
     </div>
     );

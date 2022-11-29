@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { myContext } from '../../../contextApi/Authcontext';
-import { MdOutlineVerifiedUser } from "react-icons/md";
 
 
 const Allseller = () => {
@@ -9,9 +8,9 @@ const Allseller = () => {
     const {data : sellers = [], isLoading, refetch} = useQuery({
         queryKey : ['seller',user?.email],
         queryFn : async ()=>{
-            const res = await fetch(`https://book-back-server.vercel.app/seller?email=${user?.email}`,{
+            const res = await fetch(`http://localhost:5000/seller?email=${user?.email}`,{
               headers: {
-                authorization: `bearer ${localStorage.getItem('bookToken')}`
+                authorization: `bearer ${localStorage.getItem('backToken')}`
             }
             });
             const data = await res.json()
@@ -21,11 +20,11 @@ const Allseller = () => {
 
 
     const handleVerify = (id) =>{
-      fetch(`https://book-back-server.vercel.app/users?userid=${id}&email=${user?.email}`, {
+      fetch(`http://localhost:5000/users?userid=${id}&email=${user?.email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
-          authorization: `bearer ${localStorage.getItem("bookToken")}`,
+          authorization: `bearer ${localStorage.getItem("backToken")}`,
         },
       })
       .then(res => res.json())
@@ -35,36 +34,51 @@ const Allseller = () => {
       })
     }
 
+
+    const deleteseller = (id) =>{
+      fetch(`http://localhost:5000/deleteuser?id=${id}`,{
+        method : 'DELETE',
+      })
+      .then(res => res.json())
+      .then(data => {refetch()})
+    }
+
     if(isLoading){
       return <p>Loadding ...</p>
     }
 
     return (
-        <div className="overflow-x-auto">
-        <table className="bg-pink-50 text-gray-700 border-separate w-full shadow-none">
-          <thead>
+        <div className="flex flex-col">
+        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+        <div className="overflow-hidden">
+        <table className="table-auto min-w-full bg-blue-gray-50">
+          <thead className='border-2 border-spacing-2 border-indigo-100'>
             <tr>
-              <th className="bg-indigo-900 text-white px-4 py-2">serial</th>
-              <th className="bg-indigo-900 text-white px-4 py-2">Name</th>
-              <th className="bg-indigo-900 text-white px-4 py-2">Email</th>
-              <th className="bg-indigo-900 text-white px-4 py-2">Status</th>
-              <th className="bg-indigo-900 text-white px-4 py-2">Action</th>
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50">serial</th>
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Name</th>
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50">Email</th>
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Status</th>
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50">Action</th>
             </tr>
           </thead>
           <tbody>
-                {sellers.map((seller, index) => (
-                  <tr key={seller._id}>
-                    <th className="p-4">{index + 1}</th>
-                    <th className="p-4"> {seller.name} </th>
-                    <th className="p-4">{seller.email}</th>
-                    <th className="p-4"><button onClick={()=>handleVerify(seller._id)} className= {`btn btn-sm btn-primary ${seller.verified === true ? 'btn-primary' : 'btn-warning'}`} >
-                      {seller.verified === true ? <MdOutlineVerifiedUser></MdOutlineVerifiedUser> : 'verify Now' }
-                      </button></th>
-                    <th className="p-2"><button className='btn btn-sm btn-warning'>Delete</button></th>
-                  </tr>
-                ))}
+            { sellers && sellers.map((seller, index) => (
+              <tr key={seller._id} className="border-2 border-spacing-2 border-indigo-100">
+                <th className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 bg-pink-50">{index + 1}</th>
+                <th className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"> {seller.name} </th>
+                <th className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap bg-pink-50">{seller.email}</th>
+                <th className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><button onClick={()=>handleVerify(seller._id)} className= {`btn btn-sm btn-primary ${seller.verified === true ? 'btn-primary' : 'btn-warning'}`} >
+                  {seller.verified === true ? 'verifyed' : 'verify Now' }
+                  </button></th>
+                <th className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap bg-pink-50"><button onClick={()=>deleteseller(seller._id)} className='btn btn-sm btn-warning'>Delete</button></th>
+              </tr>
+            ))}
           </tbody>
         </table>
+      </div>
+      </div>
+      </div>
       </div>
     );
 };

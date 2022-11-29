@@ -13,9 +13,9 @@ const AllProducts = () => {
      const {data:product = [], isLoading} = useQuery({
         queryKey : ['allproducts',category_name],
         queryFn : async ()=>{
-            const res = await fetch(`https://book-back-server.vercel.app/allproducts?category_name=${category_name}&email=${user?.email}`,{
+            const res = await fetch(`http://localhost:5000/allproducts?category_name=${category_name}&email=${user?.email}`,{
                 headers: {
-                    authorization: `bearer ${localStorage.getItem('bookToken')}`
+                    authorization: `bearer ${localStorage.getItem('backToken')}`
                 }
             })
             const data = await res.json()
@@ -24,15 +24,13 @@ const AllProducts = () => {
      })
      if(isLoading){
         return <p>lodding...</p>
-     }
-
-     
+     } 
 
     return (
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-screen-xl px-2 py-16 sm:px-2 sm:py-24 lg:px-2">
             <h2 className="max-w-lg mb-5 font-sans text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none  leading-none md:mx-auto">
-            <span className="relative inline-block"> Category of
-                    <span className="relative text-pink-600"> {category_name} </span>
+            <span className="relative inline-block">Category of
+                    <span className="relative text-pink-600"> {category_name}</span>
                     <svg
                         viewBox="0 0 52 24"
                         fill="currentColor"
@@ -49,19 +47,18 @@ const AllProducts = () => {
                         height="22"
                         />
                     </svg>
-                    </span>
+                    </span><br />
             </h2>
-            <div className='grid gap-8 mt-10 row-gap-8 lg:grid-cols-2'>
+            <div className='grid gap-8 row-gap-8 lg:grid-cols-1'>
             {
               product.length ?  product.map(prod => <ProductCard setmodalinfo={setmodalinfo} key = {prod._id} prod = {prod}></ProductCard>)
               :
-              <div className='text-center'>
-              <h2 className='text-3xl  my-6 text-pink-600'>Please Login and Back <br />
-              </h2>
-              <Button onClick={logOut} color='pink' >Logout</Button>
+              <div className='text-center text-2xl text-indigo-700'>
+              <p>Please Logout and Login Again</p>
+              <Button onClick={logOut} color='pink' variant='gradient'>Logout</Button> 
               </div>
             }
-            { modalinfo && <BookModal setmodalinfo={setmodalinfo} modalinfo={modalinfo}></BookModal>}
+            { modalinfo&& <BookModal setmodalinfo={setmodalinfo} modalinfo={modalinfo}></BookModal>}
             </div>
         </div>
     );

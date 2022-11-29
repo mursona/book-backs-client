@@ -14,14 +14,14 @@ const Reviews = () => {
         {
             id: 2,
             auth_name: 'Paulus Plus',
-            auth_img: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
+            auth_img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
             description: 'After you have searched your ISBN, we display a list of companies with offers for your book. BookScouter users can rate and review each vendor with our feedback system.',
             review: '⭐⭐⭐⭐⭐'
         },
         {
             id: 3,
             auth_name: 'John Linkon',
-            auth_img: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80',
+            auth_img: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
             description: 'I liked this book. People who are interested in national disasters and US history as well as immigration will most probably be interested in reading this book.',
             review: '⭐⭐⭐⭐⭐'
         },

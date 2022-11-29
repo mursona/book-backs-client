@@ -1,6 +1,7 @@
 import React from 'react';
 import PrimaryButton from '../../../component/Button/PrimaryButton';
 import banner from '../../../assets/banner-01.png';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -22,7 +23,9 @@ const Banner = () => {
             We pride ourselves in being the world‘s largest textbook buyback price comparison tool. In addition to helping you get rid of your old textbooks, we sale second hand/ old books at cheap price.
             </p>
             <div className="flex items-center">
+              <Link to='/login'>
               <PrimaryButton className={`h-16 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-pink-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none`}>GET STARTED</PrimaryButton>
+              </Link>
               <a
                 href="/"
                 aria-label=""

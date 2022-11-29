@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
+import { Link, Outlet } from "react-router-dom";
 import { BsCartPlus } from "react-icons/bs";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { BsCartCheck } from "react-icons/bs";
 import { TfiShoppingCartFull } from "react-icons/tfi";
 import { CgUserList } from "react-icons/cg";
-import { Link, Outlet } from "react-router-dom";
 import { myContext } from "../contextApi/Authcontext";
 import useAdminHook from "../CustomeHOOk/MakeAdmin/useAdminHook";
 import useSellerHook from "../CustomeHOOk/MakeSellerHook/useSellerHook";
+import Footer from "../Pages/Shared/Footer/Footer";
 import NavbarTop from "../Pages/Shared/Navbar/NavbarTop";
 
 const DashboardLayout = () => {
@@ -17,72 +18,67 @@ const DashboardLayout = () => {
 
   return (
     <div>
-      
       <NavbarTop></NavbarTop>
       <div className="flex">
-      <div className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto border-r ">
+        <div className="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto border-r">
         <div className="flex flex-col justify-between mt-6">
           <aside>
-            <ul>
-              <li>
-                <Link className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-md " to="/dashboard">
-                <BsCartCheck></BsCartCheck>
+          <ul>
+            <li>
+              <Link to="/dashboard" className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200">
+              <BsCartCheck></BsCartCheck>
 
                   <span className="mx-4 font-medium">My orders</span>
-                </Link>
-              </li>
+                  </Link>
+            </li>
 
-              {
-                seller && (
-                  <>
-                                <li>
-                <Link className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" to='/dashboard/myproducts'>
+            {seller && (
+              <>
+                <li>
+                  <Link to="/dashboard/myproducts" className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200">
                   <TfiShoppingCartFull></TfiShoppingCartFull>
 
                   <span className="mx-4 font-medium">My products</span>
-                </Link>
-              </li>
-              <li>
-                <Link className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" to='/dashboard/addproducts'>
-                  <BsCartPlus></BsCartPlus>
-
-                  <span className="mx-4 font-medium">Add Products</span>
-                </Link>
-              </li>
-                  </>
-                )
-              }
-              {
-                admin && (
-                  <>
-                <li>
-                <Link className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" to='/dashboard/addproducts'>
-                  <BsCartPlus></BsCartPlus>
-
-                  <span className="mx-4 font-medium">Add Products</span>
-                </Link>
+                  </Link>
                 </li>
+
                 <li>
-                <Link className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" to='/dashboard/allseller'>
+                  <Link to="/dashboard/addproducts" className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200">
+                  <BsCartPlus></BsCartPlus>
+
+                  <span className="mx-4 font-medium">Add Products</span>
+                  </Link>
+                </li>
+              </>
+            )}
+
+            {admin && (
+              <>
+                <li>
+                  <Link to="/dashboard/allseller" className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200">
                   <HiOutlineUserGroup></HiOutlineUserGroup>
 
                   <span className="mx-4 font-medium">All Seller</span>
-                </Link>
+                  </Link>
                 </li>
                 <li>
-                <Link className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200" to='/dashboard/allbyer'>
+                <Link to="/dashboard/allbyer" className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200">
                   <CgUserList></CgUserList>
 
                   <span className="mx-4 font-medium">All Buyer</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/report" className="flex items-center px-4 py-2 mt-5 text-gray-600 rounded-md hover:bg-gray-200">
+                  <CgUserList></CgUserList>
+
+                  <span className="mx-4 font-medium">Report</span>
                 </Link>
                 </li>
-                  </>
-                )
-              }
-            </ul>
-
+              </>
+            )}
+          </ul>
           </aside>
-          
         </div>
       </div>
       <div className="w-full h-full p-4 m-8 overflow-y-auto">
@@ -91,7 +87,8 @@ const DashboardLayout = () => {
         </div>
       </div>
       </div>
-    </div>
+      <Footer></Footer>
+      </div>
   );
 };
 
