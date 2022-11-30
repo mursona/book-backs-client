@@ -28,10 +28,10 @@ const Reports = () => {
       <table className="table-auto min-w-full bg-blue-gray-50">
         <thead className='border-2 border-spacing-2 border-indigo-100'>
           <tr>
-            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50">serial</th>
-            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">sellerName</th>
-            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50">Product Name</th>
-            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left"> Brand Name </th>
+            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50">Serial</th>
+            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Seller Name</th>
+            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50">Book Name</th>
+            <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left"> Category Name </th>
           </tr>
         </thead>
         <tbody>

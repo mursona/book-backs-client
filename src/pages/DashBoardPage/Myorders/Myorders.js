@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { TiTickOutline } from 'react-icons/ti';
 import { myContext } from "../../../contextApi/Authcontext";
 import useTitle from "../../../CustomeHOOk/MakeDynamicTitle/UseTitle";
 
@@ -42,9 +43,9 @@ const Myorders = () => {
           <thead className='border-2 border-spacing-2 border-indigo-100'>
             <tr>
               <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50">Serial</th>
-              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Product Name</th>
-              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50"> Brand Name </th>
-              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left"> Product Price </th>
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Book Name</th>
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50"> Category Name </th>
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left"> Book Price </th>
               <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50">Status</th>
             </tr>
           </thead>
@@ -58,8 +59,8 @@ const Myorders = () => {
                 <th className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 bg-pink-50">
                   {
                     booked.sold === true ?
-                     <button className="btn btn-success">
-                       Payed
+                     <button className="btn btn-success flex text-indigo-400">
+                       Payed <TiTickOutline></TiTickOutline>
                      </button>
                     :
                     <>

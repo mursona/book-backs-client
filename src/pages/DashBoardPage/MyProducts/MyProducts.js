@@ -51,7 +51,7 @@ const MyProducts = () => {
           <thead className='border-2 border-spacing-2 border-indigo-100'>
             <tr>
               <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50"></th>
-              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Product Name</th>
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">Book Name</th>
               <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50">Price </th>
               <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left"> Status </th>
               <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left bg-pink-50"> Advertise </th>
@@ -79,7 +79,7 @@ const MyProducts = () => {
                         onClick={() => handlecampain(product._id)}
                         className={`btn btn-sm  ${product.campain === true ? 'btn-success':'btn-primary'}`}
                       >
-                       {product.campain === true ? 'add is running' : 'start campain'}
+                       {product.campain === true ? 'Ad is running' : 'Start Campain'}
                       </button>{" "}
                     </th>
                     <th className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
@@ -92,8 +92,8 @@ const MyProducts = () => {
                 ))}
               </>
             ) : (
-              <h3 className="text-4xl text-center text-success">
-                No Product Abailable For Sells Add More{" "}
+              <h3 className="text-xl text-center text-success">
+                No Product Abailable For Sales Add Frist{" "}
               </h3>
             )}
           </tbody>

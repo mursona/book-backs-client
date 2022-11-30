@@ -60,7 +60,7 @@ const reportAdmin = (id) =>{
 
     <div className="w-3/4 p-4 md:p-4">
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white">$ {product_price}</h1>
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-white">{brand_name}</h1>
+        <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Series - {brand_name}</h1>
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white">{product_name}</h1>
         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{productDetails.slice(0,200)}</p>
         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{time}</p>
