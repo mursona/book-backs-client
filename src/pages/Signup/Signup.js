@@ -41,7 +41,7 @@ const Signup = () => {
 
     const storeUserInDB = (name, email,role) =>{
         const user = {name,email,role};
-        fetch(`http://localhost:5000/users`,{
+        fetch(`https://book-back-server.vercel.app/users`,{
             method : 'POST',
             headers : {
                 'content-type' : 'application/json'
@@ -50,7 +50,7 @@ const Signup = () => {
         })
         .then(res => res.json())
         .then(data => {
-            fetch(`http://localhost:5000/jwt?email=${email}`)
+            fetch(`https://book-back-server.vercel.app/jwt?email=${email}`)
             .then(res => res.json())
             .then(data => {
                 if (data.jwtToken) {

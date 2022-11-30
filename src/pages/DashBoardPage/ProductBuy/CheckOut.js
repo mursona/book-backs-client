@@ -17,7 +17,7 @@ const CheckOut = ({ bookedprodut }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://book-back-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         'content-type': 'application/json', 
@@ -87,7 +87,7 @@ const CheckOut = ({ bookedprodut }) => {
   
 
   const paymentAdd = () =>{
-    fetch(`http://localhost:5000/addpayment?sellerEmail=${sellerEmail}&product_name=${product_name}&email=${user?.email}`,{
+    fetch(`https://book-back-server.vercel.app/addpayment?sellerEmail=${sellerEmail}&product_name=${product_name}&email=${user?.email}`,{
         method : 'PUT',
         headers: {
             "content-type": "application/json",
@@ -101,7 +101,7 @@ const CheckOut = ({ bookedprodut }) => {
       })
   }
   const paymentAddinfoinbookedCollection = () =>{
-    fetch(`http://localhost:5000/paymentbooked?sellerEmail=${sellerEmail}&product_name=${product_name}&email=${user?.email}`,{
+    fetch(`https://book-back-server.vercel.app/paymentbooked?sellerEmail=${sellerEmail}&product_name=${product_name}&email=${user?.email}`,{
         method : 'PUT',
         headers: {
             "content-type": "application/json",

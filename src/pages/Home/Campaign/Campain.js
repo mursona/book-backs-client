@@ -11,7 +11,7 @@ const {user} = useContext(myContext);
 const {data:campain =[] , isLoading} = useQuery({
 queryKey : ['campain'],
 queryFn : async ()=>{
-    const res = await fetch(`http://localhost:5000/campaign`);
+    const res = await fetch(`https://book-back-server.vercel.app/campaign`);
     const data = res.json()
     return data
 }

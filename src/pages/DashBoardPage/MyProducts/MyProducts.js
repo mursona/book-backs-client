@@ -10,7 +10,7 @@ const MyProducts = () => {
     queryKey: ["myproduct", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/myproduct?email=${user?.email}`,
+        `https://book-back-server.vercel.app/myproduct?email=${user?.email}`,
         {
           headers: {
             authorization: `bearer ${localStorage.getItem("backToken")}`,
@@ -27,7 +27,7 @@ const MyProducts = () => {
   }
 
   const handlecampain = (id) => {
-    fetch(`http://localhost:5000/campaign?productId=${id}&email=${user?.email}`, {
+    fetch(`https://book-back-server.vercel.app/campaign?productId=${id}&email=${user?.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

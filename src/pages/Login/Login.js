@@ -23,7 +23,7 @@ const Login = () => {
             .then(result => {
                 
                 // fetch jwt
-                fetch(`http://localhost:5000/jwt?email=${data.email}`)
+                fetch(`https://book-back-server.vercel.app/jwt?email=${data.email}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.jwtToken) {
@@ -47,7 +47,7 @@ const Login = () => {
           const email = user.email;
           const role = "buyer";
             storeGoogleUserInfo(name,email,role)
-            fetch(`http://localhost:5000/jwt?email=${email}`)
+            fetch(`https://book-back-server.vercel.app/jwt?email=${email}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.jwtToken) {
@@ -66,7 +66,7 @@ const Login = () => {
 
     const storeGoogleUserInfo = (name, email,role) =>{
         const deta = {name,email,role};
-        fetch(`http://localhost:5000/users`,{
+        fetch(`https://book-back-server.vercel.app/users`,{
             method : 'POST',
             headers : {
                 'content-type' : 'application/json'

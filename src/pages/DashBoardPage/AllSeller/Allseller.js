@@ -10,7 +10,7 @@ const Allseller = () => {
     const {data : sellers = [], isLoading, refetch} = useQuery({
         queryKey : ['seller',user?.email],
         queryFn : async ()=>{
-            const res = await fetch(`http://localhost:5000/seller?email=${user?.email}`,{
+            const res = await fetch(`https://book-back-server.vercel.app/seller?email=${user?.email}`,{
               headers: {
                 authorization: `bearer ${localStorage.getItem('backToken')}`
             }
@@ -22,7 +22,7 @@ const Allseller = () => {
 
 
     const handleVerify = (id) =>{
-      fetch(`http://localhost:5000/users?userid=${id}&email=${user?.email}`, {
+      fetch(`https://book-back-server.vercel.app/users?userid=${id}&email=${user?.email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -38,7 +38,7 @@ const Allseller = () => {
 
 
     const deleteseller = (id) =>{
-      fetch(`http://localhost:5000/deleteuser?id=${id}`,{
+      fetch(`https://book-back-server.vercel.app/deleteuser?id=${id}`,{
         method : 'DELETE',
       })
       .then(res => res.json())

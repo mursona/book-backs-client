@@ -27,14 +27,14 @@ const ProductCard = ({ prod ,setmodalinfo}) => {
   const {data : user, isLoading} = useQuery({
     queryKey : ['user',sellerName],
     queryFn : async ()=>{
-      const res = await fetch(`http://localhost:5000/user?sellerName=${sellerName}`)
+      const res = await fetch(`https://book-back-server.vercel.app/user?sellerName=${sellerName}`)
       const data = await res.json()
       return data
     }
   })
 
 const reportAdmin = (id) =>{
-  fetch(`http://localhost:5000/report?id=${id}&email=${buyer?.email}`,{
+  fetch(`https://book-back-server.vercel.app/report?id=${id}&email=${buyer?.email}`,{
     method : 'PUT',
     headers: {
       "content-type": "application/json",

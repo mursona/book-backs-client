@@ -13,7 +13,7 @@ const Myorders = () => {
     queryKey: ["bookingproduct", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/bookingproduct?email=${user?.email}`,
+        `https://book-back-server.vercel.app/bookingproduct?email=${user?.email}`,
         {
           headers: {
             authorization: `bearer ${localStorage.getItem("backToken")}`,

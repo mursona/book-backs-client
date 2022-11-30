@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             {
                 path : '/category/:id',
                 element : <PrivetRouting><AllProducts></AllProducts></PrivetRouting>,
-                loader : ({params})=> fetch(`http://localhost:5000/categories/${params.id}`)
+                loader : ({params})=> fetch(`https://book-back-server.vercel.app/categories/${params.id}`)
 
             },
             
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
             {
                 path : '/dashboard/purchase/:id',
                 element : <ProductBuy></ProductBuy>,
-                loader : ({params})=> fetch(`http://localhost:5000/product/purchase/${params.id}`)
+                loader : ({params})=> fetch(`https://book-back-server.vercel.app/product/purchase/${params.id}`)
                 
             },
             {
