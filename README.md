@@ -25,3 +25,7 @@ Description of project:
 
 ## [Client Side live link](https://book-backs.web.app)
 Click here for the private repo: [https://book-backs.web.app/](https://book-backs.web.app/)
+
+## Admin Route Check
+adminEmail: mursona.cse.bu@gmail.com
+adminPassword: @1234Admin

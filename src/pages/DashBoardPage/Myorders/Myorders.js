@@ -26,7 +26,7 @@ const Myorders = () => {
   });
 
   if (isLoading) {
-    return <p>loadding ....</p>;
+    return    <div className='w-10 h-10 border-8 text-7xl text-center border-dashed rounded-full animate-spin mt-5 border-pink-600'></div>;
   }
   return (
    <>
